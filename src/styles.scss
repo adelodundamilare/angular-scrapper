@@ -1,1 +1,38 @@
 /* You can add global styles to this file, and also import other style files */
+// @import url('https://unpkg.com/bootstrap@4.5.0/dist/css/bootstrap.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@400;900&display=swap');
+
+// import tailwindcss
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+:root {
+  --primary-color: #4ad295;
+  --primary-dark-color: #0b2239;
+  --accent-color: #ffb229;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 18px;
+  font-family: Spartan;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 900;
+}
+
+input, select, button {
+  border: 0;
+  outline: 0;
+  color: inherit;
+  background-color: inherit;
+}
+
+.banner {
+ background-image: url('/assets/images/banner-bg.svg');
+}

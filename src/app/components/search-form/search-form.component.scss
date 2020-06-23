@@ -1,0 +1,17 @@
+.my-form {
+  max-width: 600px;
+  width: 100%;
+  background-color: white;
+  overflow: hidden;
+  border-radius: 20px;
+
+  &__text-input{
+    flex-grow: 1;
+    display: block;
+  }
+
+  &__submit {
+    color: white;
+    background-color: var(--primary-color);
+  }
+}

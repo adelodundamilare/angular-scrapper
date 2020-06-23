@@ -1,0 +1,66 @@
+<form
+  class="flex relative m-auto w-full overflow-hidden text-base rounded-sm"
+  [class.max-w-4xl]="!isHeader"
+  [class.py-5]="!isHeader"
+  [class.py-3]="isHeader"
+  [class.bg-white]="!isHeader"
+  [class.bg-gray-200]="isHeader"
+  [class.border-red-600]="hasError"
+  [class.border-2]="hasError"
+  (ngSubmit)="onSubmit()"
+>
+  <div class="relative">
+    <div
+      style="width: 100px;"
+      (click)="showChangeOptions()"
+      class="px-5 cursor-pointer border-r text-gray-600 border-gray-300 flex items-center"
+    >
+      <span>{{ selected }}</span>
+      <i-feather
+        name="chevron-down"
+        class="ml-2"
+        style="width: 15px; height: auto;"
+      ></i-feather>
+    </div>
+    <ng-template [ngIf]="showOptions" [ngIfElse]="showBlank">
+      <div
+        style="left: -10px;"
+        class="absolute shadow-inner bg-gray-200 divide-y-2 text-left z-10 rounded left-0 top-0"
+      >
+        <div
+          *ngFor="let option of options"
+          class="py-3 px-8 cursor-pointer"
+          (click)="setNewOption(option)"
+        >
+          {{ option }}
+        </div>
+      </div>
+    </ng-template>
+    <ng-template #showBlank>
+      <!-- blank something -->
+    </ng-template>
+  </div>
+  <input
+    class="flex-grow px-5 w-full"
+    [placeholder]="receivedUrl"
+    type="text"
+    name="urlInput"
+    [(ngModel)]="urlInput"
+    (ngModelChange)="onChange($event)"
+  />
+  <button
+    type="button"
+    style="outline: none;"
+    class="px-5 hover:text-primary text-gray-600 bg-transparent"
+    (click)="onSubmit()"
+  >
+    <i-feather name="search"></i-feather>
+  </button>
+  <p
+    *ngIf="hasError"
+    style="left: 0; right: 0;"
+    class="text-red-600 absolute text-xs font-bold bottom-0"
+  >
+    invalid url, please try again
+  </p>
+</form>
